@@ -22,14 +22,16 @@ if(isset($_GET['logout'])){ // user clicks logout, it destroy session & log even
 }
 
 ?>
-
 <!DOCTYPE html>
  <html>
  <head>
      <title> Simple Chat Application </title>
      <link rel="stylesheet" href="style.css" />
- </head>
+ 
  <body>
+    <?php
+    if(!isset($_SESSION['name'])){ //if user not logged in show login form
+        ?>
      <div id="loginform">
          <p> Please enter your name to continue!</p>
          <form action="index.php" method="post">
@@ -37,6 +39,34 @@ if(isset($_GET['logout'])){ // user clicks logout, it destroy session & log even
              <input type="text" name="name" id="name" />
              <input type="submit" name="enter" value="Enter" />
  </form>
+ </head>
  </div>
+   
+<?php
+    } else {
+        ?>
+        <!-- Main chat interface -->
+        <div id="wrapper"> 
+        <div id="menu">
+            <p class="welcome">Welcome, <b><?php echo $_SESSION['name']; ?></b></p>
+            <p class="logout"><a id="exit" href="#">Exit Chat</a></p>
+        </div>
+    <div id="chatbox">
+        <?php
+        if(file_exists("log.html") && filesize("log.html") > 0){ //load exisiting message if chat log gile exists
+            $contents = file_get_contents("log.html");
+            echo $contents;
+        }}
+        ?>
+        </div>
+
+        <formname="message" action="">
+            <input name= "usermsg" type="text" id="usermsg" />
+            <input name="submitmsg" type="submit" id="submitmsg" value="Send" />
+    </form>
+    </div>
  </body>
  </html> 
+    
+
+
