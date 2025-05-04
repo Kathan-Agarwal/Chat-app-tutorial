@@ -56,7 +56,7 @@ if(isset($_GET['logout'])){ // user clicks logout, it destroy session & log even
         if(file_exists("log.html") && filesize("log.html") > 0){ //load exisiting message if chat log gile exists
             $contents = file_get_contents("log.html");
             echo $contents;
-        }}
+        }
         ?>
         </div>
 
@@ -65,8 +65,48 @@ if(isset($_GET['logout'])){ // user clicks logout, it destroy session & log even
             <input name="submitmsg" type="submit" id="submitmsg" value="Send" />
     </form>
     </div>
- </body>
- </html> 
-    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#submitmsg").click(function (){
+                var clientmsg =$("#usermsg").val();
+                $.post("post.php", {text: clientmsg }); //sends message to post.php
+                $("#usermsg").val(""); // clear the input box
+                return false;
+
+            });
+
+            function loadlog() {
+                var oldscrollHeight =$("#chatbox") [0].scrollHeight - 20; // current scroll height
+                $.ajax({
+                    url: "log.html",
+                    cache: false,
+                    success: function (html) {
+                        $("#chatbox").html(html); // helps to update check box
+                        var newscrollHeight = $("chatbox") [0].scrollHeight - 20;
+                        if(newscrollHeight > oldscrollHeight){
+                            $("#chatbox").animate({ scrollTop: newscrollHeight }, 'normal'); // Auto-scroll 
+
+                        }
+                    }
+                })
+
+            }
+            setInterval(loadlog, 2500); //reload chat log after every 2.5 seconds
+
+            $("#exit").click(function (){
+                var exit = confirm("Are you sure you want to end the session?");
+                if (exit == true) {
+                    window.location = "index.php?logout=true"; //logout link
+                }
+            });
 
 
+
+        });
+        </script>
+        <?php
+        }
+        ?>
+</body>
+</html>
