@@ -1,0 +1,177 @@
+/*removing default margin & padding from all element*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* styling body of the page*/
+body { 
+    margin: 20px auto; 
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    background-color: #f8f9fa; 
+
+}
+
+/* styling for the form used in the chat input*/
+form {
+    padding: 15px 25px; 
+    display: flex; 
+    gap: 10px;
+    justify-content:center;
+
+}
+/*styling for the labels inside form*/
+form label {
+    font: size 1.5rem; 
+    font-weight: bold; 
+}
+
+input {
+    font-family: "Lato", sans-serif;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+/* styling for main wrapper & loginform */
+#wrapper,
+#loginform {
+    margin: 0 auto;
+    padding-bottom: 25px;
+    background: #eae9e9;
+    width: 600px;
+    max-width: 100%;
+    border: 2px solid #ced4da;
+    border-radius: 4px;
+}
+
+/* Additinal styling for login form*/
+#loginform {
+    padding-top: 18px;
+    text-align: center;
+}
+
+
+/* styling text inside login form*/
+#loginform p {
+    padding: 15px 25px;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+/* Styling for chat display area */
+#chatbox {
+    text-align: left;
+    margin: 0 auto 25px;
+    padding: 10px;
+    background: #f1f1f1;
+    height: 300px;
+    width: 530px;
+    border: 1px solid #ccc;
+    overflow: auto; /*Add scroll when content overflows*/
+    border-radius: 4px;
+    border-bottom: 4px solid #ccc;
+}
+
+/* Styling for input text area for chat messages */
+#usermsg {
+    flex: 1;
+    border-radius: 4px;
+    border: 1px solid #007BFF;
+    padding: 4px 8px; /* space inside input box */
+}
+
+/* Styling for name input field on login */
+#name {
+    border-radius: 4px;
+    border: 1px solid;
+    padding: 2px 8px;
+}
+
+
+/* styling for send & enter buttons */
+#submitmsg,
+#enter {
+    background: #007BFF;
+    border: 2px solid #0056b3;
+    color: white;
+    padding: 4px 10px;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+/* Styling for error messages */
+.error {
+    color: #dc3545;
+}
+
+
+/* Styling for the top menu area after login */
+#menu {
+    padding: 15px 25px; 
+    display: flex;
+}
+
+
+/* Welcome text inside the menu */
+#menu p.welcome {
+    flex: 1;
+    color: #4b9af0;
+    font-weight: bold;
+}
+
+/* styling for exit button */
+#exit {
+    color: white;
+    background: #0056b3;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+
+/* Style for each chat msg line */
+.msgln {
+    margin: 0 0 5px 0;
+}
+
+
+/* Styling for the message like User just joined */
+.msgln span.left-info {
+    color: #1673c4;
+
+}
+
+
+/* Styling for the timestamp in msg */
+.msgln span.chat-time {
+    color: #eb2121;
+    font-size: 60%;
+    vertical-align: none;
+}
+
+
+/* Style for username & user name that left */
+.msgln b.user-name,
+.msgln b.user-name-left {
+    font-weight: bold;
+    background: #6cacec;
+    color: white;
+    padding: 2px 4px;
+    font-size: 90%;
+    border-radius: 4px;
+    margin: 0 5px 0 0;
+
+}
+
+.msgln b.user-name-left {
+    background: #81daf3;
+}

@@ -60,7 +60,7 @@ if(isset($_GET['logout'])){ // user clicks logout, it destroy session & log even
         ?>
         </div>
 
-        <formname="message" action="">
+        <form name="message" action="">
             <input name= "usermsg" type="text" id="usermsg" />
             <input name="submitmsg" type="submit" id="submitmsg" value="Send" />
     </form>
